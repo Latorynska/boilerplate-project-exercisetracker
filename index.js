@@ -58,6 +58,7 @@ app.route('/api/users')
 app.post('/api/users/:id/exercises', async (req, res) => {
   try {
     let { description, duration, date } = req.body;
+    duration = Number(duration);
     date = date ? new Date(date) : new Date();
     if (isNaN(date.getTime())) {
       date = new Date();
